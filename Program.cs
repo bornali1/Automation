@@ -12,8 +12,11 @@ public class Firstselenium
         IWebDriver driver = new ChromeDriver();
         ExtentReports extentReports = new ExtentReports();
         ExtentSparkReporter reportpath = new ExtentSparkReporter(@"C:\ReportLocation"+DateTime.Now+".html");
+        extentReports.AttachReporter(reportpath);
+        ExtentTest test = extentReports.CreateTest("Login test", "This is our first test case");
 
         driver.Navigate().GoToUrl("https://practicetestautomation.com/practice-test-login/");
+        test.Log(Status.Info, "Open browser");
         Console.WriteLine("Open Browser");
         
         driver.Manage().Window.Maximize();
@@ -26,9 +29,16 @@ public class Firstselenium
 
         driver.FindElement(By.Id("submit")).Click();
         Console.WriteLine("Hit submit button");
-
-        driver.FindElement(By.CssSelector("#loop-container > div > article > div.post-content > div > div > div > a")).Click();
-        Console.WriteLine("Failed Login");
+        try
+        {
+            driver.FindElement(By.CssSelector("#loop-container > div > article > div.post-content > div > div > div > a")).Click();
+        }
+        catch
+        {
+            Console.WriteLine("Failed Login");
+        }
+        driver.Quit();
+        extentReports.Flush();
     }
     
 
