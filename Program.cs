@@ -1,11 +1,15 @@
-﻿using OpenQA.Selenium;
+﻿using AventStack.ExtentReports;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 public class Firstselenium
 {
     static void Main(string[] args)
     {
+
+
         IWebDriver driver = new ChromeDriver();
+        ExtentReports extentReports = new ExtentReports();
 
         driver.Navigate().GoToUrl("https://practicetestautomation.com/practice-test-login/");
         Console.WriteLine("Open Browser");
