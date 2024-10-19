@@ -11,7 +11,7 @@ public class Firstselenium
 
         IWebDriver driver = new ChromeDriver();
         ExtentReports extentReports = new ExtentReports();
-        ExtentSparkReporter reportpath = new ExtentSparkReporter(@"C:\ReportLocation"+DateTime.Now+".html");
+        ExtentSparkReporter reportpath = new ExtentSparkReporter(@"C:\ReportLocation\report.html");
         extentReports.AttachReporter(reportpath);
         ExtentTest test = extentReports.CreateTest("Login test", "This is our first test case");
 
