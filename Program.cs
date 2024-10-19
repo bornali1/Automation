@@ -11,7 +11,7 @@ public class Firstselenium
 
         IWebDriver driver = new ChromeDriver();
         ExtentReports extentReports = new ExtentReports();
-        ExtentSparkReporter reportpath = new ExtentSparkReporter(@"C:\ReportLocation\report.html");
+        ExtentSparkReporter reportpath = new ExtentSparkReporter(@"C:\ReportLocation\report.Now.ToString("_MMddyy_hgv").+html);
         extentReports.AttachReporter(reportpath);
         ExtentTest test = extentReports.CreateTest("Login test", "This is our first test case");
 
@@ -22,12 +22,15 @@ public class Firstselenium
         driver.Manage().Window.Maximize();
 
         driver.FindElement(By.Id("username")).SendKeys("student");
+        test.Log(Status.Info, "Provide username");
         Console.WriteLine("Provide username");
 
         driver.FindElement(By.Id("password")).SendKeys("Password1234tfh");
+        test.Log(Status.Info, " Provide Password");
         Console.WriteLine("Provide Password");
 
         driver.FindElement(By.Id("submit")).Click();
+        test.Log(Status.Info, "Hit submit button");
         Console.WriteLine("Hit submit button");
         try
         {
