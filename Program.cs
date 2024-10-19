@@ -40,6 +40,17 @@ public class Firstselenium
         driver.Quit();
         extentReports.Flush();
     }
+
+    static void main ()
+
+        private static void CreateReportDirectories()
+    {
+        string ReportPath = @"C:\ReportLocation\";
+        if (Directory.Exists(ReportPath))
+        {
+            Directory.CreateDirectory(ReportPath);
+        }
+    }
     
 
     
