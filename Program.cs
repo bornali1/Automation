@@ -27,25 +27,30 @@ public class Firstselenium
         
         driver.Manage().Window.Maximize();
 
-        driver.FindElement(By.Id("username")).SendKeys("student");
-        test.Log(Status.Info, "Provide username");
-        Console.WriteLine("Provide username");
-        
-        driver.FindElement(By.Id("password")).SendKeys("Password1234tfh");
-        test.Log(Status.Info, " Provide Password");
-        Console.WriteLine("Provide Password");
+        foreach (var test in testdatalist)
+        {
+            driver.FindElement(By.Id("username")).SendKeys("test.username");
+            test.Log(Status.Info, "Provide username");
+            Console.WriteLine("Provide username");
 
-        driver.FindElement(By.Id("submit")).Click();
-        test.Log(Status.Info, "Hit submit button");
-        Console.WriteLine("Hit submit button");
-        try
-        {
-            driver.FindElement(By.CssSelector("#loop-container > div > article > div.post-content > div > div > div > a")).Click();
+            driver.FindElement(By.Id("password")).SendKeys("Password1234tfh");
+            test.Log(Status.Info, " Provide Password");
+            Console.WriteLine("Provide Password");
+
+            driver.FindElement(By.Id("submit")).Click();
+            test.Log(Status.Info, "Hit submit button");
+            Console.WriteLine("Hit submit button");
+            try
+            {
+                driver.FindElement(By.CssSelector("#loop-container > div > article > div.post-content > div > div > div > a")).Click();
+            }
+            catch
+            {
+                Console.WriteLine("Failed Login");
+
+            }
         }
-        catch
-        {
-            Console.WriteLine("Failed Login");
-        }
+
         driver.Quit();
         extentReports.Flush();
     }
