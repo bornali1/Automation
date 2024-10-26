@@ -2,9 +2,11 @@
 using AventStack.ExtentReports.Reporter;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.DevTools.V127.LayerTree;
 
 public class Firstselenium
 {
+    public static String DataCSVFile = System.IO.Directory.GetCurrentDirectory();
     static void Main(string[] args)
     {
 
