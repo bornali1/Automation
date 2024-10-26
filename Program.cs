@@ -9,7 +9,7 @@ public class Firstselenium
     public static String DataCSVFile = System.IO.Directory.GetCurrentDirectory();
     static void Main(string[] args)
     {
-
+        var Testdatalist = ReadCsvData(DataCSVFile+ "\\Data\\Data.csv);
 
         IWebDriver driver = new ChromeDriver();
         ExtentReports extentReports = new ExtentReports();
