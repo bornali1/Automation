@@ -1,10 +1,10 @@
-﻿using Automation;
+﻿
+using Automation;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
 using CsvHelper;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.DevTools.V127.LayerTree;
 using System.Globalization;
 
 public class Firstselenium
@@ -27,13 +27,13 @@ public class Firstselenium
         
         driver.Manage().Window.Maximize();
 
-        foreach (var test in testdatalist)
+        foreach (var ltest in Testdatalist)
         {
-            driver.FindElement(By.Id("username")).SendKeys("test.username");
+            driver.FindElement(By.Id("username")).SendKeys(ltest.username);
             test.Log(Status.Info, "Provide username");
             Console.WriteLine("Provide username");
 
-            driver.FindElement(By.Id("password")).SendKeys("Password1234tfh");
+            driver.FindElement(By.Id("password")).SendKeys (ltest.password);
             test.Log(Status.Info, " Provide Password");
             Console.WriteLine("Provide Password");
 
