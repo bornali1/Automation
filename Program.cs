@@ -1,5 +1,7 @@
-﻿using AventStack.ExtentReports;
+﻿using Automation;
+using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
+using CsvHelper;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.DevTools.V127.LayerTree;
@@ -56,8 +58,15 @@ public class Firstselenium
             Directory.CreateDirectory(ReportPath);
         }
     }
-    
 
+    static List<testdata> ReadCsvData(string filepath)
+    {
+        using (var reader = new StreamReader(filepath))
+        using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+        {
+            return new List<testdata>(csv.GetRecords<testdata>());
+        }
+    }
     
-
 }
+
