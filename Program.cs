@@ -21,6 +21,7 @@ public class Firstselenium
         ExtentTest test = extentReports.CreateTest("Login test", "This is our first test case");
 
         driver.Navigate().GoToUrl("https://practicetestautomation.com/practice-test-login/");
+        
         test.Log(Status.Info, "Open browser");
         Console.WriteLine("Open Browser");
         
@@ -48,8 +49,6 @@ public class Firstselenium
         driver.Quit();
         extentReports.Flush();
     }
-
-
 
         private static void CreateReportDirectories()
     {
